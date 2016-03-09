@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core.PrimeNumbers;
+using NUnit.Framework;
 using System;
 
 namespace Core.UnitTests.PrimeNumbers
@@ -19,7 +20,7 @@ namespace Core.UnitTests.PrimeNumbers
 		public void NonPositiveIntegersShouldThrowException(int numberOfPrimes)
 		{
 			Assert.Throws<ArgumentException>(
-				_primeNumbersGetter.GetFirstNPrimeNumbers(numberOfPrimes));
+				() => _primeNumbersGetter.GetFirstNPrimeNumbers(numberOfPrimes));
 		}
 	}
 }
