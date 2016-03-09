@@ -4,6 +4,13 @@ namespace Core.PrimeNumbers
 {
 	public class PrimeNumbersGetter
 	{
+		private readonly IPrimeNumberChecker _primeNumberChecker;
+
+		public PrimeNumbersGetter(IPrimeNumberChecker primeNumberChecker)
+		{
+			_primeNumberChecker = primeNumberChecker;
+		}
+
 		public int[] GetFirstNPrimeNumbers(int numberOfPrimes)
 		{
 			if (numberOfPrimes < 1)

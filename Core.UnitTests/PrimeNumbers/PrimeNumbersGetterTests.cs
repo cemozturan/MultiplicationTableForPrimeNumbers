@@ -1,4 +1,5 @@
 ﻿using Core.PrimeNumbers;
+using Moq;
 using NUnit.Framework;
 using System;
 
@@ -8,11 +9,13 @@ namespace Core.UnitTests.PrimeNumbers
 	public class PrimeNumbersGetterTests
 	{
 		private PrimeNumbersGetter _primeNumbersGetter;
+		private Mock<IPrimeNumberChecker> _mockPrimeNumberChecker;
 
 		[SetUp]
 		public void SetUp()
 		{
-			_primeNumbersGetter = new PrimeNumbersGetter();
+			_mockPrimeNumberChecker = new Mock<IPrimeNumberChecker>(MockBehavior.Strict); 
+			_primeNumbersGetter = new PrimeNumbersGetter(_mockPrimeNumberChecker.Object);
 		}
 
 		[TestCase(0)]

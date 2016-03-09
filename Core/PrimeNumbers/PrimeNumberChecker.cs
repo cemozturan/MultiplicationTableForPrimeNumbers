@@ -2,7 +2,12 @@
 
 namespace Core.PrimeNumbers
 {
-	public class PrimeNumberChecker
+	public interface IPrimeNumberChecker
+	{
+		bool IsNumberPrime(int number);
+	}
+
+	public class PrimeNumberChecker : IPrimeNumberChecker
 	{
 		public bool IsNumberPrime(int number)
 		{

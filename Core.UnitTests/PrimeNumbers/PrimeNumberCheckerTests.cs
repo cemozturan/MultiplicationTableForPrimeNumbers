@@ -6,7 +6,7 @@ namespace Core.UnitTests.PrimeNumbers
 	[TestFixture]
 	public class PrimeNumberCheckerTests
 	{
-		private PrimeNumberChecker _primeNumberChecker;
+		private IPrimeNumberChecker _primeNumberChecker;
 
 		private static int[] NonPrimeOddNumbers = { 9, 15, 33, 121, 169 };
 		private static int[] PrimeOddNumbers = { 3, 5, 7, 311, 571 };
