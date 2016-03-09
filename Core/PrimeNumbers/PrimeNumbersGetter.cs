@@ -14,6 +14,11 @@ namespace Core.PrimeNumbers
 					numberOfPrimes));
 			}
 
+			if (numberOfPrimes == 1)
+			{
+				return new int[] { 2 };
+			}
+
 			return null;
 		}
 	}
