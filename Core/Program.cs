@@ -8,7 +8,18 @@ namespace Core
         static void Main(string[] args)
         {
             var inputGetter = new TextReaderInputGetter();
-            var numberOfPrimes = inputGetter.GetInput(Console.In);
+			var inputValidator = new InputValidator();
+
+			Console.WriteLine("Please enter the number of primes you want to include in the multiplication table:");
+
+			var numberOfPrimes = inputGetter.GetInput(Console.In);
+			while (!inputValidator.IsInputValid(numberOfPrimes))
+			{
+				Console.WriteLine(string.Format(
+					"{0} is not a positive integer or it is too large. Please enter a number again:"
+					, numberOfPrimes));
+				numberOfPrimes = inputGetter.GetInput(Console.In);
+			}
 
             Console.WriteLine("Press ANY key to exit.");
             Console.ReadKey();
