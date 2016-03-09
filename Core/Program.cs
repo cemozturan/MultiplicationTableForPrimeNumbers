@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.UserInput;
+using System;
 
 namespace Core
 {
@@ -10,6 +7,11 @@ namespace Core
     {
         static void Main(string[] args)
         {
+            var inputGetter = new TextReaderInputGetter();
+            var numberOfPrimes = inputGetter.GetInput(Console.In);
+
+            Console.WriteLine("Press ANY key to exit.");
+            Console.ReadKey();
         }
     }
 }
