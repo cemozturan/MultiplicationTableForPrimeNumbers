@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core.UserInput;
+using NUnit.Framework;
 
 namespace Core.UnitTests.UserInput
 {
@@ -21,7 +22,7 @@ namespace Core.UnitTests.UserInput
 		{
 			// Arrange
 			// Act
-			var isValid = _inputValidator.ValidateInput(userInput);
+			var isValid = _inputValidator.IsInputValid(userInput);
 
 			// Assert
 			Assert.IsFalse(isValid);
