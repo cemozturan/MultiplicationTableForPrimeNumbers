@@ -39,5 +39,18 @@ namespace Core.UnitTests.UserInput
 			// Assert
 			Assert.IsFalse(isValid);
 		}
+
+		[TestCase("1")]
+		[TestCase("01")] // This is controversial, but I'll accept it as valid input.
+		[TestCase("999999")]
+		public void PositiveIntegersShouldPass(string userInput)
+		{
+			// Arrange
+			// Act
+			var isValid = _inputValidator.IsInputValid(userInput);
+
+			// Assert
+			Assert.IsTrue(isValid);
+		}
 	}
 }
