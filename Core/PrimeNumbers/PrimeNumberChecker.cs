@@ -1,4 +1,6 @@
-﻿namespace Core.PrimeNumbers
+﻿using System;
+
+namespace Core.PrimeNumbers
 {
 	public class PrimeNumberChecker
 	{
@@ -18,7 +20,8 @@
 			}
 			else
 			{
-				for (var i = 3; i < number; i += 2)
+				var sqrt = Math.Sqrt(number);
+				for (var i = 3; i <= sqrt; i += 2)
 				{
 					if (number % i == 0)
 					{
