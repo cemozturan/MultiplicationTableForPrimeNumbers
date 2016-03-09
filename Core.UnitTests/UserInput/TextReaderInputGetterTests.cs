@@ -1,5 +1,6 @@
 ﻿using Core.UserInput;
 using NUnit.Framework;
+using System;
 using System.IO;
 
 namespace Core.UnitTests.UserInput
@@ -40,6 +41,25 @@ namespace Core.UnitTests.UserInput
 
             // Assert
             Assert.AreEqual(userInput, inputRead);
+        }
+
+        [Test]
+        public void StringsShouldBeReadUntilTheFirstLineBreak()
+        {
+            // Arrange
+            var expectedValue = "This should be read";
+            var userInput = expectedValue
+                + Environment.NewLine
+                + "and this should not be read"
+                + Environment.NewLine
+                + "as well as this.";
+            var stringReader = new StringReader(userInput);
+
+            // Act
+            var inputRead = _textReaderInputGetter.GetInput(stringReader);
+
+            // Assert
+            Assert.AreEqual(expectedValue, inputRead);
         }
     }
 }
