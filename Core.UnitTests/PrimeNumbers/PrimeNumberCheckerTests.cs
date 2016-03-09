@@ -8,7 +8,7 @@ namespace Core.UnitTests.PrimeNumbers
 	{
 		private PrimeNumberChecker _primeNumberChecker;
 
-		private int[] NonPrimeOddNumbers = { 9, 15, 33, 121, 169 };
+		private static int[] NonPrimeOddNumbers = { 9, 15, 33, 121, 169 };
 
 		[SetUp]
 		public void SetUp()
