@@ -27,5 +27,17 @@ namespace Core.UnitTests.UserInput
 			// Assert
 			Assert.IsFalse(isValid);
 		}
-    }
+
+		[TestCase("-1")]
+		[TestCase("0")]
+		public void NonPositiveIntegerInputShouldFail(string userInput)
+		{
+			// Arrange
+			// Act
+			var isValid = _inputValidator.IsInputValid(userInput);
+
+			// Assert
+			Assert.IsFalse(isValid);
+		}
+	}
 }
