@@ -18,7 +18,7 @@
 			}
 			else
 			{
-				for (var i = 2; i < number; i++)
+				for (var i = 3; i < number; i += 2)
 				{
 					if (number % i == 0)
 					{
