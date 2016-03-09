@@ -7,6 +7,7 @@ namespace Core.UnitTests.UserInput
     public class InputValidatorTests
     {
         private InputValidator _inputValidator;
+		private const string MinimumInputForIntegerOverflow = "2147483648";
 
 		[SetUp]
 		public void SetUp()
@@ -42,7 +43,8 @@ namespace Core.UnitTests.UserInput
 
 		[TestCase("1")]
 		[TestCase("01")] // This is controversial, but I'll accept it as valid input.
-		[TestCase("999999")]
+		[TestCase("1234567")]
+		[TestCase("2147483647")] // Maximum integer value
 		public void PositiveIntegersShouldPass(string userInput)
 		{
 			// Arrange
@@ -51,6 +53,17 @@ namespace Core.UnitTests.UserInput
 
 			// Assert
 			Assert.IsTrue(isValid);
+		}
+		
+		[Test]
+		public void IntegerOverflowShouldCauseAFail()
+		{
+			// Arrange
+			// Act
+			var isValid = _inputValidator.IsInputValid(MinimumInputForIntegerOverflow);
+
+			// Assert
+			Assert.IsFalse(isValid);
 		}
 	}
 }
