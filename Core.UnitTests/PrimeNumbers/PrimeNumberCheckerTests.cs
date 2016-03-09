@@ -8,6 +8,8 @@ namespace Core.UnitTests.PrimeNumbers
 	{
 		private PrimeNumberChecker _primeNumberChecker;
 
+		private int[] NonPrimeOddNumbers = { 9, 15, 33, 121, 169 };
+
 		[SetUp]
 		public void SetUp()
 		{
@@ -41,6 +43,17 @@ namespace Core.UnitTests.PrimeNumbers
 		[TestCase(4)]
 		[TestCase(1000)]
 		public void EvenNumbersOtherThan2ShouldFail(int number)
+		{
+			// Arrange
+			// Act
+			var isPrime = _primeNumberChecker.IsNumberPrime(number);
+
+			// Assert
+			Assert.IsFalse(isPrime);
+		}
+
+		[TestCaseSource("NonPrimeOddNumbers")]
+		public void NonPrimeOddNumbersShouldFail(int number)
 		{
 			// Arrange
 			// Act
