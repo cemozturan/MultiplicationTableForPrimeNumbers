@@ -5,7 +5,7 @@ using System.IO;
 namespace Core.UnitTests.UserInput
 {
     [TestFixture]
-    class TextReaderInputGetterTests
+    public class TextReaderInputGetterTests
     {
         private IUserInputGetter _textReaderInputGetter;
 
@@ -20,7 +20,7 @@ namespace Core.UnitTests.UserInput
         {
             // Arrange
             var stringReader = new StringReader(string.Empty);
-
+            
             // Act
             var input = _textReaderInputGetter.GetInput(stringReader);
 

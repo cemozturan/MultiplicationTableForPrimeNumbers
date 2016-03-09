@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace Core.UserInput
 {
     public class TextReaderInputGetter : IUserInputGetter
     {
-
+        public string GetInput(TextReader textReader)
+        {
+            return textReader.ReadLine();
+        }
     }
 }
