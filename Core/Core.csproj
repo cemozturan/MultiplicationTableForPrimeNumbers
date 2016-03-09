@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PrimeNumbers\PrimeNumberChecker.cs" />
     <Compile Include="PrimeNumbers\PrimeNumbersGetter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

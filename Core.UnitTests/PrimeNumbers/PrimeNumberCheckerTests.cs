@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core.PrimeNumbers;
+using NUnit.Framework;
 
 namespace Core.UnitTests.PrimeNumbers
 {
