@@ -9,6 +9,7 @@ namespace Core.UnitTests.PrimeNumbers
 		private PrimeNumberChecker _primeNumberChecker;
 
 		private static int[] NonPrimeOddNumbers = { 9, 15, 33, 121, 169 };
+		private static int[] PrimeOddNumbers = { 3, 5, 7, 311, 571 };
 
 		[SetUp]
 		public void SetUp()
@@ -61,6 +62,17 @@ namespace Core.UnitTests.PrimeNumbers
 
 			// Assert
 			Assert.IsFalse(isPrime);
+		}
+
+		[TestCaseSource("PrimeOddNumbers")]
+		public void PrimeOddNumbersShouldPass(int number)
+		{
+			// Arrange
+			// Act
+			var isPrime = _primeNumberChecker.IsNumberPrime(number);
+
+			// Assert
+			Assert.IsTrue(isPrime);
 		}
 	}
 }
