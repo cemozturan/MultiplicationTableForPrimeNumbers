@@ -7,7 +7,8 @@ namespace Core.UserInput
 		public bool IsInputValid(string input)
 		{
 			int value;
-			return Int32.TryParse(input, out value);
+			return Int32.TryParse(input, out value)
+				&& value > 0;
 		}
     }
 }
