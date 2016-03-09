@@ -26,5 +26,28 @@ namespace Core.UnitTests.PrimeNumbers
 			// Assert
 			Assert.IsFalse(isPrime);
 		}
+
+		[Test]
+		public void TwoShouldPass()
+		{
+			// Arrange
+			// Act
+			var isPrime = _primeNumberChecker.IsNumberPrime(2);
+
+			// Assert
+			Assert.IsTrue(isPrime);
+		}
+
+		[TestCase(4)]
+		[TestCase(1000)]
+		public void EvenNumbersOtherThan2ShouldFail(int number)
+		{
+			// Arrange
+			// Act
+			var isPrime = _primeNumberChecker.IsNumberPrime(number);
+
+			// Assert
+			Assert.IsFalse(isPrime);
+		}
 	}
 }
