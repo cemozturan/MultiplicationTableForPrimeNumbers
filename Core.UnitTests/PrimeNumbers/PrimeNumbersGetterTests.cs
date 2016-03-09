@@ -22,5 +22,17 @@ namespace Core.UnitTests.PrimeNumbers
 			Assert.Throws<ArgumentException>(
 				() => _primeNumbersGetter.GetFirstNPrimeNumbers(numberOfPrimes));
 		}
+
+		[Test]
+		public void TheFirstPrimeNumberShouldBe2()
+		{
+			// Arrange
+			// Act
+			var primes = _primeNumbersGetter.GetFirstNPrimeNumbers(1);
+
+			// Assert
+			Assert.AreEqual(1, primes.Length);
+			Assert.AreEqual(2, primes[0]);
+		}
 	}
 }
