@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core.UserInput;
+using NUnit.Framework;
 
 namespace Core.UnitTests.UserInput
 {
