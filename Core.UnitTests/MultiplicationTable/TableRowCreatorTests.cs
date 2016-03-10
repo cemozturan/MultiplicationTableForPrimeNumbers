@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core.MultiplicationTable;
+using NUnit.Framework;
 
 namespace Core.UnitTests.MultiplicationTable
 {
@@ -21,7 +22,7 @@ namespace Core.UnitTests.MultiplicationTable
 			var primes = new int[1] { primeNumber };
 
 			// Act
-			var row = _tableRowCreator.CreateRow(primes, primes[0]);
+			var row = _tableRowCreator.CreateRow(primes, null);
 
 			// Assert
 			Assert.AreEqual("|   | " + primeNumber + " |", row);

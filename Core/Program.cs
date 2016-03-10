@@ -1,4 +1,5 @@
-﻿using Core.UserInput;
+﻿using Core.PrimeNumbers;
+using Core.UserInput;
 using System;
 
 namespace Core
@@ -9,6 +10,7 @@ namespace Core
         {
             var inputGetter = new TextReaderInputGetter();
 			var inputValidator = new InputValidator();
+			var primeNumbersGetter = new PrimeNumbersGetter(new PrimeNumberChecker());
 
 			Console.WriteLine("Please enter the number of primes you want to include in the multiplication table:");
 
@@ -21,7 +23,9 @@ namespace Core
 				numberOfPrimes = inputGetter.GetInput(Console.In);
 			}
 
-            Console.WriteLine("Press ANY key to exit.");
+			var primeNumbers = primeNumbersGetter.GetFirstNPrimeNumbers(Int32.Parse(numberOfPrimes));
+
+			Console.WriteLine("Press ANY key to exit.");
             Console.ReadKey();
         }
     }
