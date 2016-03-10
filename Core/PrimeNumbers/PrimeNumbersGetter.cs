@@ -21,8 +21,9 @@ namespace Core.PrimeNumbers
 			}
 
 			var primeNumbers = new int[numberOfPrimesRequired];
-			var numberOfPrimesFound = 0;
-			var nextNumber = 2;
+			primeNumbers[0] = 2;
+			var numberOfPrimesFound = 1;
+			var nextNumber = 3;
 
 			while (numberOfPrimesFound < numberOfPrimesRequired)
 			{
@@ -31,7 +32,7 @@ namespace Core.PrimeNumbers
 					primeNumbers[numberOfPrimesFound] = nextNumber;
 					numberOfPrimesFound++;
 				}
-				nextNumber++;
+				nextNumber += 2;
 			}
 
 			return primeNumbers;

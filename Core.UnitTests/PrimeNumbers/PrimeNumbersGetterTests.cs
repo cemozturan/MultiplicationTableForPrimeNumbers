@@ -32,11 +32,6 @@ namespace Core.UnitTests.PrimeNumbers
 		public void TheFirstPrimeNumberShouldBe2()
 		{
 			// Arrange
-			_mockPrimeNumberChecker
-				.Setup(x => x.IsNumberPrime(2))
-				.Returns(true)
-				.Verifiable();
-
 			// Act
 			var primes = _primeNumbersGetter.GetFirstNPrimeNumbers(1);
 
@@ -44,7 +39,7 @@ namespace Core.UnitTests.PrimeNumbers
 			Assert.AreEqual(1, primes.Length);
 			Assert.AreEqual(2, primes[0]);
 			_mockPrimeNumberChecker
-				.Verify(x => x.IsNumberPrime(2), Times.Once);
+				.Verify(x => x.IsNumberPrime(It.IsAny<int>()), Times.Never);
 		}
 
 		[Test]
