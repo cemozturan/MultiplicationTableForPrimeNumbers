@@ -2,6 +2,8 @@
 using Moq;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Core.UnitTests.PrimeNumbers
 {
@@ -36,6 +38,27 @@ namespace Core.UnitTests.PrimeNumbers
 			// Assert
 			Assert.AreEqual(1, primes.Length);
 			Assert.AreEqual(2, primes[0]);
+		}
+
+		[Test]
+		public void AnyValidPrimeShouldBeReturned()
+		{
+			// Arrange
+			var validPrimes = new List<int> { 2, 3, 13 };
+			_mockPrimeNumberChecker
+				.Setup(x => x.IsNumberPrime(It.Is<int>(number => validPrimes.Contains(number))))
+				.Returns(true)
+				.Verifiable();
+
+			// Act
+			var primes = _primeNumbersGetter.GetFirstNPrimeNumbers(4);
+			
+			// Assert
+			Assert.IsTrue(validPrimes.All(
+				validPrime => primes.Contains(validPrime)));
+			_mockPrimeNumberChecker
+				.Verify(x => x.IsNumberPrime(It.Is<int>(number => validPrimes.Contains(number))),
+				Times.Once);
 		}
 	}
 }
