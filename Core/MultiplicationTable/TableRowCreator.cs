@@ -2,14 +2,17 @@
 {
 	public class TableRowCreator
 	{
-		public string CreateRow(int[] primeNumbers, int? factor)
+		public string CreateHeaderRow(int[] primeNumbers)
+		{
+			var row = CreateFactorCell(null);
+			row += CreateMultiplicationResultCells(primeNumbers);
+            return row;
+		}
+
+		public string CreateRow(int[] primeNumbers, int factor)
 		{
 			var row = CreateFactorCell(factor);
-			for (var i = 0; i < primeNumbers.Length; i++)
-			{
-				row += CreateMultiplicationCell(primeNumbers[i]);
-			}
-
+			row += CreateMultiplicationResultCells(primeNumbers);
 			return row;
 		}
 
@@ -18,9 +21,19 @@
 			return "| " + (factor.HasValue ? factor.ToString() : " ") + " |";
 		}
 
-		private string CreateMultiplicationCell(int number)
+		private string CreateMultiplicationResultCell(int number)
 		{
 			return " " + number + " |";
+		}
+
+		private string CreateMultiplicationResultCells(int[] primeNumbers)
+		{
+			var cells = "";
+			for (var i = 0; i < primeNumbers.Length; i++)
+			{
+				cells += CreateMultiplicationResultCell(primeNumbers[i]);
+			}
+			return cells;
 		}
 	}
 }

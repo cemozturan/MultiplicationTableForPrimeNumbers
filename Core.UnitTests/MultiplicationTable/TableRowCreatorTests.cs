@@ -22,7 +22,7 @@ namespace Core.UnitTests.MultiplicationTable
 			var primes = new int[1] { primeNumber };
 
 			// Act
-			var row = _tableRowCreator.CreateRow(primes, null);
+			var row = _tableRowCreator.CreateHeaderRow(primes);
 
 			// Assert
 			Assert.AreEqual("|   | " + primeNumber + " |", row);
@@ -35,7 +35,7 @@ namespace Core.UnitTests.MultiplicationTable
 			var primes = new int[3] { 2, 3, 5 };
 
 			// Act
-			var row = _tableRowCreator.CreateRow(primes, null);
+			var row = _tableRowCreator.CreateHeaderRow(primes);
 
 			// Assert
 			Assert.AreEqual("|   | " + primes[0] + " | "
