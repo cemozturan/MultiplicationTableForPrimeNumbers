@@ -11,21 +11,30 @@ namespace Core.PrimeNumbers
 			_primeNumberChecker = primeNumberChecker;
 		}
 
-		public int[] GetFirstNPrimeNumbers(int numberOfPrimes)
+		public int[] GetFirstNPrimeNumbers(int numberOfPrimesRequired)
 		{
-			if (numberOfPrimes < 1)
+			if (numberOfPrimesRequired < 1)
 			{
 				throw new ArgumentException(string.Format(
 					"{0} is an invalid input. The number of primes asked for must be a positive integer.",
-					numberOfPrimes));
+					numberOfPrimesRequired));
 			}
 
-			if (numberOfPrimes == 1)
+			var primeNumbers = new int[numberOfPrimesRequired];
+			var numberOfPrimesFound = 0;
+			var nextNumber = 2;
+
+			while (numberOfPrimesFound < numberOfPrimesRequired)
 			{
-				return new int[] { 2 };
+				if (_primeNumberChecker.IsNumberPrime(nextNumber))
+				{
+					primeNumbers[numberOfPrimesFound] = nextNumber;
+					numberOfPrimesFound++;
+				}
+				nextNumber++;
 			}
 
-			return null;
+			return primeNumbers;
 		}
 	}
 }
