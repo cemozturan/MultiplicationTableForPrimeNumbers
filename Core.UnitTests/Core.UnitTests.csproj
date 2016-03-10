@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MultiplicationTable\TableRowCreatorTests.cs" />
     <Compile Include="PrimeNumbers\PrimeNumberCheckerTests.cs" />
     <Compile Include="PrimeNumbers\PrimeNumbersGetterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
