@@ -58,5 +58,24 @@ namespace Core.UnitTests.MultiplicationTable
 			// Assert
 			Assert.IsTrue(row.StartsWith("| " + primes[indexOfPrime] + " |"));
 		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		[TestCase(2)]
+		public void RowsOtherThanTheFirstRowShouldContainMultiplicationResults(int indexOfPrime)
+		{
+			// Arrange
+			var primes = new int[3] { 2, 3, 5 };
+
+			// Act
+			var row = _tableRowCreator.CreateRow(primes, primes[indexOfPrime]);
+
+			// Assert
+			Assert.AreEqual("| " + primes[indexOfPrime] + " | "
+				+ primes[0] * primes[indexOfPrime] + " | "
+				+ primes[1] * primes[indexOfPrime] + " | "
+				+ primes[2] * primes[indexOfPrime] + " |",
+				row);
+		}
 	}
 }
