@@ -1,31 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.MultiplicationTable
+﻿namespace Core.MultiplicationTable
 {
 	public class TableRowCreator
 	{
 		public string CreateRow(int[] primeNumbers, int? factor)
 		{
-			var row = "";
-			if (!factor.HasValue)
+			var row = CreateFactorCell(factor);
+			for (var i = 0; i < primeNumbers.Length; i++)
 			{
-				row += CreateFactorCell();
-				// This must be the header row
-				for (var i = 0; i < primeNumbers.Length; i++)
-				{
-					row += CreateMultiplicationCell(primeNumbers[i]);
-				}
+				row += CreateMultiplicationCell(primeNumbers[i]);
 			}
+
 			return row;
 		}
 
-		private string CreateFactorCell()
+		private string CreateFactorCell(int? factor)
 		{
-			return "|   |";
+			return "| " + (factor.HasValue ? factor.ToString() : " ") + " |";
 		}
 
 		private string CreateMultiplicationCell(int number)
