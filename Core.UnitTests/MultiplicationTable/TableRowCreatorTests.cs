@@ -21,10 +21,10 @@ namespace Core.UnitTests.MultiplicationTable
 			var primes = new int[1] { primeNumber };
 
 			// Act
-			var rows = _tableRowCreator.CreateRows(primes);
+			var row = _tableRowCreator.CreateRow(primes, primes[0]);
 
 			// Assert
-			Assert.AreEqual("|   | " + primeNumber + " |", rows[0]);
+			Assert.AreEqual("|   | " + primeNumber + " |", row);
 		}
 	}
 }
